@@ -1,4 +1,8 @@
-/* estilos básicos para a tela de login inspirados na imagem de referência */
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
 html, body {
   margin: 0;
