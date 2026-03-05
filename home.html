@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-
 <style>
-    /* estilos para a tela inicial (home.html) */
     .header {
         display: flex;
         align-items: center;
@@ -118,7 +116,7 @@
 <body>
 
     <header class="header">
-        <span class="material-symbols-outlined back" onclick="window.history.back()">arrow_back_ios</span>
+        <span class="material-symbols-outlined back" onclick="window.location.href='index.html'">logout</span>
         <span class="title">Início</span>
     </header>
 
@@ -214,7 +212,7 @@
     </div>
 
     <nav class="bottom-nav">
-        <span class="material-symbols-outlined nav-item">add</span>
+        <span class="material-symbols-outlined nav-item" onclick="window.location.href='inclusao-nf.html'">add</span>
         <span class="material-symbols-outlined nav-item">docs</span>
         <span class="material-symbols-outlined nav-item">person</span>
         <span class="material-symbols-outlined nav-item">settings</span>

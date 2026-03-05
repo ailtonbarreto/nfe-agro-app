@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>Inclusão de NF - NFe Agro</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #27C47A;
+            color: white;
+            padding: 0.75rem 1rem;
+        }
+
+        .header .title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .header .back {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .form-container {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: #196E3B;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 8px;
+            background-color: #c6f9c1;
+            font-size: 1rem;
+            color: #004d26;
+        }
+
+        .form-group input::placeholder {
+            color: #006e3b;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .buttons button {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .btn-save {
+            background-color: #196E3B;
+            color: white;
+        }
+
+        .btn-cancel {
+            background-color: #ccc;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <span class="material-symbols-outlined back" onclick="window.location.href='home.html'">arrow_back_ios</span>
+        <span class="title">Inclusão de NF</span>
+    </header>
+    <div class="form-container">
+        <div class="form-group">
+            <label for="numero">Número da NF</label>
+            <input type="text" id="numero" name="numero" placeholder="Digite o número da nota" required>
+        </div>
+        <div class="form-group">
+            <label for="serie">Série</label>
+            <input type="text" id="serie" name="serie" placeholder="Série" required>
+        </div>
+        <div class="form-group">
+            <label for="data-emissao">Data de Emissão</label>
+            <input type="date" id="data-emissao" name="data-emissao" required>
+        </div>
+        <div class="form-group">
+            <label for="valor">Valor Total</label>
+            <input type="number" id="valor" name="valor" placeholder="0.00" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="cliente">Cliente/Destinatário</label>
+            <input type="text" id="cliente" name="cliente" placeholder="Nome do cliente" required>
+        </div>
+        <div class="form-group">
+            <label for="produto">Produto</label>
+            <select id="produto" name="produto" required>
+                <option value="">Selecione um produto</option>
+                <option value="soja">Soja</option>
+                <option value="cafe">Café</option>
+                <option value="milho">Milho</option>
+                <option value="outro">Outro</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="quantidade">Quantidade</label>
+            <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade" required>
+        </div>
+        <div class="form-group">
+            <label for="observacoes">Observações</label>
+            <textarea id="observacoes" name="observacoes" placeholder="Observações adicionais"></textarea>
+        </div>
+        <div class="buttons">
+            <button class="btn-save" onclick="salvarNF()">Salvar</button>
+            <button class="btn-cancel" onclick="window.history.back()">Cancelar</button>
+        </div>
+    </div>
+    <script>
+        function salvarNF() {
+            // Lógica para salvar a NF
+            alert('NF salva com sucesso!');
+            window.location.href = 'home.html';
+        }
+    </script>
+</body>
+
+</html>
