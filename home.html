@@ -10,6 +10,13 @@
 </head>
 
 <style>
+
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .header {
         display: flex;
         align-items: center;
@@ -17,6 +24,8 @@
         background-color: #27C47A;
         color: white;
         padding: 0.75rem 1rem;
+        position: fixed;
+        width: 100%;
     }
 
     .header .title {
@@ -33,6 +42,8 @@
         padding: 1rem;
         display: flex;
         flex-direction: column;
+        margin-top: 30vw;
+        width: 100%;
     }
 
     .greeting {
@@ -135,7 +146,7 @@
             <h1 id="bomdia" style="text-align: left;">Bom dia,</h1>
             <h1 id="nome_produtor">Produtor!</h1>
 
-            <div class="avatar"></div>
+            <!-- <div class="avatar"></div> -->
 
         </div>
 
@@ -221,9 +232,9 @@
 
     <nav class="bottom-nav">
         <span class="material-symbols-outlined nav-item" onclick="window.location.href='inclusao-nf.html'">add</span>
-        <span class="material-symbols-outlined nav-item">docs</span>
-        <span class="material-symbols-outlined nav-item">person</span>
-        <span class="material-symbols-outlined nav-item">settings</span>
+        <span class="material-symbols-outlined nav-item" onclick="window.location.href='nfs-emitidas.html'">docs</span>
+        <span class="material-symbols-outlined nav-item" onclick="window.location.href='cadastro-fornecedor.html'">person</span>
+        <span class="material-symbols-outlined nav-item" onclick="window.location.href='configuracoes.html'">settings</span>
     </nav>
 </body>
 
