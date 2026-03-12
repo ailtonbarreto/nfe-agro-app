@@ -15,6 +15,7 @@ html, body {
 .material-symbols-outlined{
   user-select: none;
   cursor: pointer;
+  user-select: none;
 }
 
 
