@@ -110,23 +110,99 @@
         width: 100%;
         background-color: #27C47A;
         display: flex;
-        justify-content: space-around;
-        padding: 0.5rem 0;
+        justify-content: space-between;
+        padding: 1vw 2vw;
+        gap: 1rem;
+
+        .material-symbols-outlined.nav-item {
+            font-size: 12vw;
+        }
     }
 
+
     .bottom-nav .nav-item {
-        color: white;
-        font-size: 10vw;
+        color: #fff;
+        font-size: 1.5rem;
         text-align: center;
         cursor: pointer;
     }
 
     @media (min-width: 1200px) {
-
-        .home-content,
-        .bottom-nav {
-            margin: auto 30vw;
+        body {
+            align-items: stretch;
         }
+
+        .header {
+            position: static;
+            padding: 1rem 2rem;
+            width: auto;
+            justify-content: center;
+        }
+
+        .header .title {
+            font-size: 2rem;
+        }
+
+        .header .back {
+            position: absolute;
+            left: 2rem;
+        }
+
+        .home-content {
+            padding: 2rem;
+            margin-top: 0;
+            width: 80%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .greeting {
+            display: none;
+        }
+
+
+        .cards {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            min-height: 100px;
+            padding: 1.5rem;
+            border-radius: 16px;
+        }
+
+        .card .material-symbols-outlined {
+            font-size: 4rem;
+        }
+
+        .card .label {
+            font-size: 1.5rem;
+        }
+
+        .card .value {
+            font-size: 1.5rem;
+        }
+
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #27C47A;
+            display: flex;
+            justify-content: center;
+            padding: 0.25rem 0;
+            gap: 1rem;
+
+            .material-symbols-outlined.nav-item {
+                font-size: 3rem;
+            }
+        }
+
     }
 </style>
 
@@ -231,7 +307,8 @@
     <nav class="bottom-nav">
         <span class="material-symbols-outlined nav-item" onclick="window.location.href='inclusao-nf.html'">add</span>
         <span class="material-symbols-outlined nav-item" onclick="window.location.href='nfs-emitidas.html'">docs</span>
-        <span class="material-symbols-outlined nav-item" onclick="window.location.href='cadastro-cultura.html'">wheat</span>
+        <span class="material-symbols-outlined nav-item"
+            onclick="window.location.href='cadastro-cultura.html'">wheat</span>
         <span class="material-symbols-outlined nav-item"
             onclick="window.location.href='cadastro-fornecedor.html'">person</span>
 
