@@ -1,0 +1,16 @@
+<button onclick="pagarPlanoA()">Pagar Plano A</button>
+<button onclick="pagarPlanoB()">Pagar Plano B</button>
+
+<script>
+async function pagarPlanoA() {
+  const response = await fetch("/pagamento/plano-a", { method: "POST" });
+  const data = await response.json();
+  window.location.href = data.paymentUrl;
+}
+
+async function pagarPlanoB() {
+  const response = await fetch("/pagamento/plano-b", { method: "POST" });
+  const data = await response.json();
+  window.location.href = data.paymentUrl;
+}
+</script>
