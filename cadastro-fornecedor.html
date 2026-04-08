@@ -80,6 +80,102 @@
       cursor: pointer;
       padding-left: 1rem;
     }
+
+    /* Estilos do Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #196E3B;
+    }
+    .modal-close {
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #666;
+      border: none;
+      background: none;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group label {
+      font-weight: 500;
+      color: #196E3B;
+      margin-bottom: 0.5rem;
+    }
+    .form-group input {
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: #27C47A;
+      box-shadow: 0 0 0 3px rgba(39, 196, 122, 0.1);
+    }
+    .modal-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .btn-cancel {
+      flex: 1;
+      padding: 0.75rem;
+      background-color: #f0f0f0;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      color: #666;
+    }
+    .btn-cancel:hover {
+      background-color: #e0e0e0;
+    }
+    .btn-save {
+      flex: 1;
+      padding: 0.75rem;
+      background-color: #27C47A;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      color: white;
+    }
+    .btn-save:hover {
+      background-color: #1fa366;
+    }
   </style>
 </head>
 <body>
@@ -90,7 +186,7 @@
   
   <div class="content">
     
-    <button class="add-button" onclick="window.location.href='cadastrar-cliente.html'">+</button>
+    <button class="add-button" id="add-fornecedor">+</button>
     
     <div class="page-title">
       Fornecedores<br>Cadastrados
@@ -147,5 +243,79 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal de Cadastro de Fornecedor -->
+  <div id="modal-fornecedor" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Novo Fornecedor</h2>
+        <button class="modal-close" onclick="fecharModal()">&times;</button>
+      </div>
+      
+      <form id="form-fornecedor">
+        <div class="form-group">
+          <label for="razao-social">Razão Social</label>
+          <input type="text" id="razao-social" name="razao-social" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="cnpj">CNPJ</label>
+          <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="modal-buttons">
+          <button type="button" class="btn-cancel" onclick="fecharModal()">Cancelar</button>
+          <button type="submit" class="btn-save">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal-fornecedor');
+    const btnAdicionar = document.getElementById('add-fornecedor');
+    const formFornecedor = document.getElementById('form-fornecedor');
+
+    // Abrir modal
+    btnAdicionar.addEventListener('click', function() {
+      modal.classList.add('active');
+    });
+
+    // Fechar modal
+    function fecharModal() {
+      modal.classList.remove('active');
+      formFornecedor.reset();
+    }
+
+    // Fechar modal ao clicar fora dele
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        fecharModal();
+      }
+    });
+
+    // Salvar fornecedor
+    formFornecedor.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const razaoSocial = document.getElementById('razao-social').value;
+      const cnpj = document.getElementById('cnpj').value;
+      const telefone = document.getElementById('telefone').value;
+      const email = document.getElementById('email').value;
+      
+      console.log('Fornecedor cadastrado:', { razaoSocial, cnpj, telefone, email });
+      alert('Fornecedor cadastrado com sucesso!');
+      fecharModal();
+    });
+  </script>
 </body>
 </html>
